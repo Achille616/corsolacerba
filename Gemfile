@@ -27,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Usata per Materialize di Google
 gem 'materialize-sass', '~> 1.0.0'
+gem 'devise', '~> 4.8'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
