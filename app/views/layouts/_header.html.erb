@@ -1,5 +1,5 @@
  <!-- Barra di navigazione fissa e responsive di Materialize -->
-   <header class="navbar-fixed">
+  <header class="navbar-fixed">
     <nav class="blue-grey darken-1">
       <div class="container nav-wrapper">
         <%= link_to "Corso/Lacerba.io", root_path, class: "brand-logo" %>
@@ -7,16 +7,28 @@
         <ul class="right hide-on-med-and-down">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Chi Siamo", about_path %></li>
-          <li><a href="#">Contattaci</a></li>
-          <li><a href="#">Progetto</a></li>
+
+          <% if user_signed_in?%>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+            <li><%= link_to "Registrazione", new_user_registration_path %></li>
+          <% end %>
+            <li><a href="#">Progetto</a></li>
         </ul>
       </div>
     </nav>
+  </header> 
 
     <ul class="sidenav" id="mobile-demo">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Chi Siamo", about_path %></li>
-      <li><a href="#">Contattaci</a></li>
-      <li><a href="#">Progetto</a></li>
+      <% if user_signed_in?%>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+        <li><%= link_to "Registrazione", new_user_registration_path %></li>
+      <% end %>
+        <li><a href="#">Progetto</a></li>
     </ul>
-   </header> 
+   
